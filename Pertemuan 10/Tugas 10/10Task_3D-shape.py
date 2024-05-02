@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time
 
-
+# Variabel global untuk menyimpan sudut putaran saat ini
+current_azim = 0
 
 # Fungsi untuk menampilkan layar loading dan membuka program utama
 def load_and_open():
@@ -28,9 +29,6 @@ def load_and_open():
 
 # Fungsi untuk membuka program utama
 def open_main_program():
-    
-    # Variabel global untuk menyimpan sudut putaran saat ini
-    current_azim = 0
     
     # Fungsi untuk memutar kubus
     def rotate():
