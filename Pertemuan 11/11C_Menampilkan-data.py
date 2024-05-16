@@ -9,7 +9,7 @@ class DataInOut:
     def __init__(self, root):
         self.root = root
         self.root.title('Penjumlahan')
-        self.root.geometry('300x150+0+0')
+        self.root.geometry('400x200+0+0')
         
         frame1 = Frame(self.root)
         frame1.grid()
@@ -20,11 +20,9 @@ class DataInOut:
         frame3 = Frame(frame1)
         frame3.grid(row = 2, column = 0)
         
-        frame4 = Frame(frame1)
-        frame4.grid(row = 2, column = 1)
-        
         FirstNum = StringVar()
         SecondNum = StringVar()
+        Hasil = StringVar()
         
         self.lblFirstNum = Label(frame2, text = 'Enter first Number')
         self.lblFirstNum.grid(row = 0, column = 0)
@@ -35,6 +33,29 @@ class DataInOut:
         self.lblSecondNum.grid(row=1, column=0)
         self.txtSecondNum = Entry(frame2, textvariable=SecondNum)
         self.txtSecondNum.grid(row=1,column=1)
+        
+        self.lblHasil = Label(frame2, text='Hasil')
+        self.lblHasil.grid(row=2, column=0)
+        self.txtHasil = Label(frame2, textvariable=Hasil)
+        self.txtHasil.grid(row=2, column=1)
+        
+        def JUMLAHKAN():
+            pertama = float(FirstNum.get())
+            kedua = float(SecondNum.get())
+            hasil = pertama + kedua
+            Hasil.set(hasil)
+            
+        def RESET():
+            FirstNum.set("")
+            SecondNum.set("")
+            Hasil.set("")
+            
+        def KELUAR():
+            root.quit()
+            
+        self.btnJumlahkan = Button(frame3, text='Jumlahkan', command=JUMLAHKAN).grid(row=2, column=0)
+        self.btnReset = Button(frame3, text='Reset', command=RESET).grid(row = 2, column= 1)
+        self.btnKeluar = Button(frame3, text='Keluar', command=KELUAR).grid(row=2, column=2)
         
 if __name__ == '__main__':
     root = Tk()
